@@ -6,71 +6,74 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public testPassPageMy {
-    @Test
-    public void testPassPageMyAutorisationForm() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+
+public class testPassPageMy{
+@Test
+public void testPassPageMyAutorisationForm()throws InterruptedException{
+        WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://pass.rw.by/ru/");
-        PassPageMy passRWbyPage = new PassPageMy(driver);
+        PassPageMy passRWbyPage=new PassPageMy(driver);
         passRWbyPage.clickButtonPersonalAccount();
         Thread.sleep(1000);
-        Assertions.assertEquals("Авторизация", passRWbyPage.getTextHeaderTextAutorisation());
+        Assertions.assertEquals("Авторизация",passRWbyPage.getTextHeaderTextAutorisation());
         driver.close();
-    }
-    @Test
-    public void testPassPageMyEmptyValues() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        }
+@Test
+public void testPassPageMyEmptyValues()throws InterruptedException{
+        WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://pass.rw.by/ru/");
-        PassPageMy passRWbyPage = new PassPageMy(driver);
+        PassPageMy passRWbyPage=new PassPageMy(driver);
         passRWbyPage.clickButtonPersonalAccount();
         Thread.sleep(1000);
         passRWbyPage.clickButtonEnter();
-        Assertions.assertEquals("Заполните поле", passRWbyPage.getTextErrorMassageLoginOrEmail());
-        Assertions.assertEquals("Заполните поле", passRWbyPage.getTextErrorMassagePassword());
+        Assertions.assertEquals("Заполните поле",passRWbyPage.getTextErrorMassageLoginOrEmail());
+        Assertions.assertEquals("Заполните поле",passRWbyPage.getTextErrorMassagePassword());
         driver.close();
-    }
-    @Test
-    public void testPassPageMyEmptyEmail() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        }
+@Test
+public void testPassPageMyEmptyEmail()throws InterruptedException{
+        WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://pass.rw.by/ru/");
-        PassPageMy passPageMy = new PassPageMy(driver);
+        PassPageMy passPageMy=new PassPageMy(driver);
         passPageMy.clickButtonPersonalAccount();
         passPageMy.sendKeysInputPassword("password");
         Thread.sleep(1000);
         passPageMy.clickButtonEnter();
-        Assertions.assertEquals("Заполните поле", passPageMy.getTextErrorMassageLoginOrEmail());
+        Assertions.assertEquals("Заполните поле",passPageMy.getTextErrorMassageLoginOrEmail());
         driver.close();
-    }
-    @Test
-    public void testPassPageMyEmptyPassword() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        }
+@Test
+public void testPassPageMyEmptyPassword()throws InterruptedException{
+        WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://pass.rw.by/ru/");
-        PassPageMy passPageMy = new PassPageMy(driver);
+        PassPageMy passPageMy=new PassPageMy(driver);
         passPageMy.clickButtonPersonalAccount();
         passPageMy.sendKeysInputLoginOrEmail("login");
         Thread.sleep(1000);
         passPageMy.clickButtonEnter();
-        Assertions.assertEquals("Заполните поле", passPageMy.getTextErrorMassagePassword());
+        Assertions.assertEquals("Заполните поле",passPageMy.getTextErrorMassagePassword());
         driver.close();
-    }
-    @Test
-    public void testPassPageMyInvalidValues() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+        }
+@Test
+public void testPassPageMyInvalidValues()throws InterruptedException{
+        WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://pass.rw.by/ru/");
-        PassPageMy passPageMy = new PassPageMy(driver);
+        PassPageMy passPageMy=new PassPageMy(driver);
         passPageMy.clickButtonPersonalAccount();
         passPageMy.sendKeysInputLoginOrEmail("login");
         Thread.sleep(500);
         passPageMy.sendKeysInputPassword("password");
         Thread.sleep(1000);
         passPageMy.clickButtonEnter();
-        Assertions.assertEquals("Пользователь не найден", passPageMy.getTextErrorMassageUserNotFound());
-        driver.close();
-    }
+        Assertions.assertEquals("Пользователь не найден",passPageMy.getTextErrorMassageUserNotFound());
+        driver.close();}
 }
+
+
+
 

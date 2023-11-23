@@ -9,7 +9,7 @@ public class PassPage {
     public String tabLinkEmail="//*[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]";
     public String inputTextEmail ="//*[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]/input";
 
-    public String inputButtonForm = "//*[@id="form-auth"]/fieldset/div[3]/input";
+    public String inputButtonForm = "";
     public String textError ="//*[@id=\"password-error\"]";
 
     WebDriver driver;

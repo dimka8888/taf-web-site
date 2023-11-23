@@ -1,13 +1,12 @@
 package by_ITAcademe_Ivanchikov_d;
 
 import org.openqa.selenium.By;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class PassPageMy {
-            private String buttonPersonalAccount = "//[@id=\"db\"]/div[1]/div[1]/div/header/div/div[3]/div[3]/ul/li[2]/a/span[2]";
+        private String buttonPersonalAccount = "//[@id=\"db\"]/div[1]/div[1]/div/header/div/div[3]/div[3]/ul/li[2]/a/span[2]";
         private String headerTextAutorisation = "//[@id=\"auth-popup\"]/div/div/div[1]/div";
         private String inputLoginOrEmail = "//[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]/input";
         private String inputPassword = "//[@id=\"form-auth\"]/fieldset/div[2]/div[1]/div/label/div[2]/input";
@@ -20,9 +19,11 @@ public class PassPageMy {
         public PassPageMy(WebDriver driver) {
             this.driver = driver;
         }
+
         public void clickButtonPersonalAccount() {
             driver.findElement(By.xpath(buttonPersonalAccount)).click();
         }
+
         public void clickButtonEnter() {
             driver.findElement(By.xpath(buttonEnter)).click();
         }
@@ -35,9 +36,11 @@ public class PassPageMy {
         public String getTextHeaderTextAutorisation() {
             return driver.findElement(By.xpath(headerTextAutorisation)).getText();
         }
+
         public String getTextErrorMassageLoginOrEmail() {
             return driver.findElement(By.xpath(errorMassageLoginOrEmail)).getText();
         }
+
         public String getTextErrorMassagePassword() {
             return driver.findElement(By.xpath(errorMassagePassword)).getText();
         }
@@ -45,5 +48,4 @@ public class PassPageMy {
             return driver.findElement(By.xpath(errorMassageUserNotFound)).getText();
         }
     }
-
 
