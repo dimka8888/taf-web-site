@@ -1,0 +1,145 @@
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by_ITAcademe_Ivanchikov_d;\r\n\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.WebElement;\r\n\r\npublic class PassPage {\r\n    public String inputButtonMain = \"/html/body/div[1]/div[1]/div[1]/div/header/div/div[3]/div[3]/ul/li[2]/a\";\r\n    public String tabLinkEmail=\"//*[@id=\\\"form-auth\\\"]/fieldset/div[1]/label/div[2]\";\r\n    public String inputTextEmail =\"//*[@id=\\\"form-auth\\\"]/fieldset/div[1]/label/div[2]/input\";\r\n\r\n    public String inputButtonForm = \"//*[@id=\"form-auth\"]/fieldset/div[3]/input\";\r\n    public String textError =\"//*[@id=\\\"password-error\\\"]\";\r\n\r\n    WebDriver driver;\r\n\r\n    public PassPage(WebDriver driver) {\r\n        this.driver = driver;\r\n    }\r\n\r\n    public void clickInputButtonMain() {\r\n        WebElement inputButtonMainElenent = driver.findElement(By.xpath(inputButtonMain));\r\n        inputButtonMainElenent.click();\r\n    }\r\n    public void clickTabLinkEmail() {\r\n        WebElement tabLinkEmailElement = driver.findElement(By.xpath(tabLinkEmail));\r\n        tabLinkEmailElement.click();    }\r\n    public void clickButtonForm() {\r\n        WebElement inputButtonFormElement = driver.findElement(By.xpath(inputButtonForm));\r\n        inputButtonFormElement.click();    }\r\n    public String getTextError() {\r\n\r\n        WebElement textErrorElement = driver.findElement(By.xpath(textError));\r\n        String actualError = textErrorElement.getText();\r\n        return null;    }\r\n\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java b/src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java
+--- a/src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java	(revision 23134c5f33eae097873df9f89b5370dde3f617f1)
++++ b/src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java	(date 1700745434092)
+@@ -6,12 +6,11 @@
+ 
+ public class PassPage {
+     public String inputButtonMain = "/html/body/div[1]/div[1]/div[1]/div/header/div/div[3]/div[3]/ul/li[2]/a";
+-    public String tabLinkEmail="//*[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]";
+-    public String inputTextEmail ="//*[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]/input";
+-
+-    public String inputButtonForm = "//*[@id="form-auth"]/fieldset/div[3]/input";
+-    public String textError ="//*[@id=\"password-error\"]";
+-
++    public String tabLinkEmail = "//*[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]";
++    public String inputTextEmail = "//*[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]/input";
++    public String inputButtonForm = "//*[@id=\"form-auth\"]/fieldset/div[2]/div[1]/div/label/div[2]/input//div";
++    public String textError = "//*[@id=\"password-error\"]";
++    public String textEnter = "//*[@id=\"form-auth\"]/fieldset/div[3]/input";
+     WebDriver driver;
+ 
+     public PassPage(WebDriver driver) {
+@@ -22,18 +21,20 @@
+         WebElement inputButtonMainElenent = driver.findElement(By.xpath(inputButtonMain));
+         inputButtonMainElenent.click();
+     }
++
+     public void clickTabLinkEmail() {
+         WebElement tabLinkEmailElement = driver.findElement(By.xpath(tabLinkEmail));
+-        tabLinkEmailElement.click();    }
++        tabLinkEmailElement.click();
++    }
++
+     public void clickButtonForm() {
+         WebElement inputButtonFormElement = driver.findElement(By.xpath(inputButtonForm));
+-        inputButtonFormElement.click();    }
++        inputButtonFormElement.click();
++    }
++
+     public String getTextError() {
+-
+         WebElement textErrorElement = driver.findElement(By.xpath(textError));
+         String actualError = textErrorElement.getText();
+-        return null;    }
+-
+-
+-
++        return null;
++    }
+ }
+\ No newline at end of file
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testPass.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by_itAcademy_Ivanchikov_d;\r\n\r\nimport by_ITAcademe_Ivanchikov_d.PassPage;\r\nimport org.junit.jupiter.api.Assertions;\r\nimport org.junit.jupiter.api.Test;\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\n\r\npublic class testPass {\r\n    @Test\r\n    public void testPass() throws InterruptedException {\r\n        WebDriver driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n\r\n        driver.get(\"https://pass.rw.by/ru/\");\r\n\r\n        PassPage passPage = new PassPage(driver);\r\n        Thread.sleep(2000);\r\n        {\r\n            WebElement inputButtonMain = driver.findElement(By.xpath(passPage.inputButtonMain));\r\n            inputButtonMain.click();\r\n            Thread.sleep(2000);\r\n        }\r\n        {\r\n            WebElement tabLinkEmailElement = driver.findElement(By.xpath(passPage.tabLinkEmail));\r\n            tabLinkEmailElement.click();\r\n            Thread.sleep(2000);\r\n        }\r\n        {\r\n        WebElement inputTextEmail = driver.findElement(By.xpath(passPage.inputTextEmail));\r\n        inputTextEmail.sendKeys(\"dmitry@mailru\");}\r\n        {\r\n\r\n        WebElement inputButtonForm = driver.findElement(By.xpath(passPage.inputButtonForm));\r\n        inputButtonForm.click();\r\n        Thread.sleep(2000);}\r\n        {\r\n        WebElement textError = driver.findElement(By.xpath(passPage.textError));\r\n        String actualError = textError.getText();\r\n        Assertions.assertEquals(\"Заполните поле\", actualError);}\r\n\r\n        driver.quit();\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testPass.java b/src/test/java/by_itAcademy_Ivanchikov_d/testPass.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testPass.java	(revision 23134c5f33eae097873df9f89b5370dde3f617f1)
++++ b/src/test/java/by_itAcademy_Ivanchikov_d/testPass.java	(date 1700745331103)
+@@ -13,35 +13,26 @@
+     public void testPass() throws InterruptedException {
+         WebDriver driver = new ChromeDriver();
+         driver.manage().window().maximize();
+-
+         driver.get("https://pass.rw.by/ru/");
+-
+         PassPage passPage = new PassPage(driver);
+-        Thread.sleep(2000);
+         {
+             WebElement inputButtonMain = driver.findElement(By.xpath(passPage.inputButtonMain));
+             inputButtonMain.click();
+-            Thread.sleep(2000);
+-        }
+-        {
++            Thread.sleep(1000);
+             WebElement tabLinkEmailElement = driver.findElement(By.xpath(passPage.tabLinkEmail));
+             tabLinkEmailElement.click();
+-            Thread.sleep(2000);
+-        }
+-        {
+-        WebElement inputTextEmail = driver.findElement(By.xpath(passPage.inputTextEmail));
+-        inputTextEmail.sendKeys("dmitry@mailru");}
+-        {
+-
+-        WebElement inputButtonForm = driver.findElement(By.xpath(passPage.inputButtonForm));
+-        inputButtonForm.click();
+-        Thread.sleep(2000);}
+-        {
+-        WebElement textError = driver.findElement(By.xpath(passPage.textError));
+-        String actualError = textError.getText();
+-        Assertions.assertEquals("Заполните поле", actualError);}
+-
+-        driver.quit();
++            Thread.sleep(1000);
++            WebElement inputTextEmail = driver.findElement(By.xpath(passPage.inputTextEmail));
++            inputTextEmail.sendKeys("dmitry@mailru");
++            WebElement inputButtonForm = driver.findElement(By.xpath(passPage.inputButtonForm));
++            inputButtonForm.click();
++            Thread.sleep(1000);
++            WebElement textEnter = driver.findElement(By.xpath(passPage.textEnter));
++            WebElement textError = driver.findElement(By.xpath(passPage.textError));
++            String actualError = textError.getText();
++            Assertions.assertEquals("Заполните поле", actualError);
++            driver.quit();
++        }
+     }
+ 
+ }
+\ No newline at end of file
+Index: .idea/vcs.xml
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml	(revision 23134c5f33eae097873df9f89b5370dde3f617f1)
++++ /dev/null	(revision 23134c5f33eae097873df9f89b5370dde3f617f1)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/WebDriver.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/WebDriver.java b/src/main/java/by_ITAcademe_Ivanchikov_d/WebDriver.java
+new file mode 100644
+--- /dev/null	(date 1700754183881)
++++ b/src/main/java/by_ITAcademe_Ivanchikov_d/WebDriver.java	(date 1700754183881)
+@@ -0,0 +1,4 @@
++package by_ITAcademe_Ivanchikov_d;
++
++public class WebDriver {
++}

@@ -1,0 +1,469 @@
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by_ITAcademe_Ivanchikov_d;\r\n\r\npublic class OzPage {\r\n    public String inputButtonMain = \"//*[@id=\\\"top-page\\\"]/header/div[1]/div/div[1]\";\r\n    public String tabLinkEmail = \"//*[@id=\\\"loginPopup\\\"]/div[1]/div[2]/ul/li[1]\";\r\n    public String inputTextEmail = \"//*[@id=\\\"loginForm\\\"]/div[2]/div[1]/div[1]/input\";\r\n    public String inputTextPassword = \"//*[@id=\\\"loginForm\\\"]/div[2]/div[1]/div[2]/input\";\r\n    public String inputButtonForm = \"//*[@id=\\\"loginForm\\\"]/button\";\r\n    public String textError = \"//*[@id=\\\"test\\\"]/div/div\";\r\n    public String textEnter = \"//*[@id=\\\"loginPopupIntro\\\"]\";\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java b/src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java
+--- a/src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java	(revision 23134c5f33eae097873df9f89b5370dde3f617f1)
++++ b/src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java	(date 1700388231385)
+@@ -1,5 +1,9 @@
+ package by_ITAcademe_Ivanchikov_d;
+ 
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++
+ public class OzPage {
+     public String inputButtonMain = "//*[@id=\"top-page\"]/header/div[1]/div/div[1]";
+     public String tabLinkEmail = "//*[@id=\"loginPopup\"]/div[1]/div[2]/ul/li[1]";
+@@ -8,4 +12,28 @@
+     public String inputButtonForm = "//*[@id=\"loginForm\"]/button";
+     public String textError = "//*[@id=\"test\"]/div/div";
+     public String textEnter = "//*[@id=\"loginPopupIntro\"]";
++    WebDriver driver;
++    public OzPage(WebDriver driver) {
++        this.driver = driver;    }
++    public void clickButtonLogin() {    }
++    public void clickInputButtonMain() {
++        WebElement inputButtonMainElenent = driver.findElement(By.xpath(inputButtonMain));
++        inputButtonMainElenent.click();    }
++    public void clickTabLinkEmail() {
++        WebElement tabLinkEmailElement = driver.findElement(By.xpath(tabLinkEmail));
++        tabLinkEmailElement.click();    }
++    public void sendKeysInputEmail(String newEmail) {
++        WebElement inputTextEmailElement= driver.findElement(By.xpath(inputTextEmail));
++        inputTextEmailElement.sendKeys("dmitry@mail.ru");    }
++    public void sendKeysinputPassword(String newPassword) {
++        WebElement inputTextPasswordElement = driver.findElement(By.xpath(inputTextPassword));
++        inputTextPasswordElement.sendKeys("111111");    }
++    public void clickButtonForm() {
++        WebElement inputButtonFormElement = driver.findElement(By.xpath(inputButtonForm));
++        inputButtonFormElement.click();    }
++    public String getTextError() {
++        WebElement textErrorElement = driver.findElement(By.xpath(textError));
++        String actualError = textErrorElement.getText();
++        return null;    }
+ }
++
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testOz.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by_itAcademy_Ivanchikov_d;\r\n\r\nimport by_ITAcademe_Ivanchikov_d.OzPage;\r\nimport org.junit.jupiter.api.Assertions;\r\nimport org.junit.jupiter.api.Test;\r\nimport org.openqa.selenium.By;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.WebElement;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\n\r\npublic class testOz {\r\n    @Test\r\n    public void testOzUserNotExist() throws InterruptedException {\r\n        WebDriver driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n        driver.get(\"https://oz.by/\");\r\n        OzPage oz = new OzPage();\r\n        WebElement inputButtonMain = driver.findElement(By.xpath(oz.inputButtonMain));\r\n        inputButtonMain.click();\r\n        Thread.sleep(2000);\r\n        WebElement tabLinkEmail = driver.findElement(By.xpath(oz.tabLinkEmail));\r\n        tabLinkEmail.click();\r\n        Thread.sleep(2000);\r\n        WebElement inputTextEmail = driver.findElement(By.xpath(oz.inputTextEmail));\r\n        inputTextEmail.sendKeys(\"dmitry@mail.ru\");\r\n        WebElement inputTextPassword = driver.findElement(By.xpath(oz.inputTextPassword));\r\n        inputTextPassword.sendKeys(\"111111\");\r\n        WebElement inputButtonForm = driver.findElement(By.xpath(oz.inputButtonForm));\r\n        inputButtonForm.click();\r\n        Thread.sleep(2000);\r\n        WebElement textError = driver.findElement(By.xpath(oz.textError));\r\n        String actualError = textError.getText();\r\n        Assertions.assertEquals(\"Адрес электронной почты не зарегистрирован. Зарегистрироваться\", actualError);\r\n        driver.quit();\r\n    }\r\n\r\n    @Test\r\n    public void testOzTextEnter() throws InterruptedException {\r\n        WebDriver driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n        driver.get(\"https://oz.by/\");\r\n        OzPage oz = new OzPage();\r\n        WebElement inputButtonMain = driver.findElement(By.xpath(oz.inputButtonMain));\r\n        inputButtonMain.click();\r\n        Thread.sleep(2000);\r\n        WebElement textEnter = driver.findElement(By.xpath(oz.textEnter));\r\n        String actualEnter = textEnter.getText();\r\n        Assertions.assertEquals(\"Вход\", actualEnter);\r\n        driver.quit();\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testOz.java b/src/test/java/by_itAcademy_Ivanchikov_d/testOz.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testOz.java	(revision 23134c5f33eae097873df9f89b5370dde3f617f1)
++++ b/src/test/java/by_itAcademy_Ivanchikov_d/testOz.java	(date 1700303057298)
+@@ -13,24 +13,43 @@
+     public void testOzUserNotExist() throws InterruptedException {
+         WebDriver driver = new ChromeDriver();
+         driver.manage().window().maximize();
++
+         driver.get("https://oz.by/");
+-        OzPage oz = new OzPage();
++
++        OzPage oz = new OzPage(driver);
++
++        // clickInputButtonMain()
+         WebElement inputButtonMain = driver.findElement(By.xpath(oz.inputButtonMain));
+         inputButtonMain.click();
++
+         Thread.sleep(2000);
++
++        //clickTabLinkEmail()
+         WebElement tabLinkEmail = driver.findElement(By.xpath(oz.tabLinkEmail));
+         tabLinkEmail.click();
++
+         Thread.sleep(2000);
++
++        //sendKeysInputEmail(String newEmail)
+         WebElement inputTextEmail = driver.findElement(By.xpath(oz.inputTextEmail));
+         inputTextEmail.sendKeys("dmitry@mail.ru");
++
++        //sendKeysinputPassword(String newPassword)
+         WebElement inputTextPassword = driver.findElement(By.xpath(oz.inputTextPassword));
+         inputTextPassword.sendKeys("111111");
++
++        //clickButtonForm()
+         WebElement inputButtonForm = driver.findElement(By.xpath(oz.inputButtonForm));
+         inputButtonForm.click();
++
+         Thread.sleep(2000);
++
++        //getTextError()
+         WebElement textError = driver.findElement(By.xpath(oz.textError));
+         String actualError = textError.getText();
++
+         Assertions.assertEquals("Адрес электронной почты не зарегистрирован. Зарегистрироваться", actualError);
++
+         driver.quit();
+     }
+ 
+@@ -39,7 +58,7 @@
+         WebDriver driver = new ChromeDriver();
+         driver.manage().window().maximize();
+         driver.get("https://oz.by/");
+-        OzPage oz = new OzPage();
++        OzPage oz = new OzPage(driver);
+         WebElement inputButtonMain = driver.findElement(By.xpath(oz.inputButtonMain));
+         inputButtonMain.click();
+         Thread.sleep(2000);
+Index: src/main/java/WebSiteTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/WebSiteTest.java b/src/main/java/WebSiteTest.java
+new file mode 100644
+--- /dev/null	(date 1699721447512)
++++ b/src/main/java/WebSiteTest.java	(date 1699721447512)
+@@ -0,0 +1,3 @@
++public class WebSiteTest {
++
++}
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1699720847592)
++++ b/.idea/encodings.xml	(date 1699720847592)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/test/java/by_itAcademy_Ivanchikov_d/WebSiteTest3.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/WebSiteTest3.java b/src/test/java/by_itAcademy_Ivanchikov_d/WebSiteTest3.java
+new file mode 100644
+--- /dev/null	(date 1699727491044)
++++ b/src/test/java/by_itAcademy_Ivanchikov_d/WebSiteTest3.java	(date 1699727491044)
+@@ -0,0 +1,31 @@
++package by_itAcademy_Ivanchikov_d;
++
++import org.junit.jupiter.api.Assertions;
++import org.junit.jupiter.api.Test;
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++
++public class WebSiteTest3 {
++    @Test
++    public void Testrush() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://javarush.com/");
++        String enterButtonlocator = "//*[@id=\"button_menu_start_learning_unauthorized_user\"]";
++        By enterButtonBy = By.xpath(enterButtonlocator);
++        WebElement enterButtonWebElement = driver.findElement(enterButtonBy);
++        enterButtonWebElement.click();
++        String enterTitleOauthFormLocator = "//*[@id=\"id_button_jr_welcome_start_learning_1\"]";
++        By enterTitleOauthFormBy = By.xpath(enterTitleOauthFormLocator);
++        Thread.sleep(4000);
++        WebElement enterTitleOauthForm = driver.findElement(enterTitleOauthFormBy);
++        String actual = enterTitleOauthForm.getText();
++        Assertions.assertEquals("НАЧАТЬ", actual);
++    }
++}
++
++
++
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1699720752943)
++++ b/.gitignore	(date 1699720752943)
+@@ -0,0 +1,38 @@
++target/
++!.mvn/wrapper/maven-wrapper.jar
++!**/src/main/**/target/
++!**/src/test/**/target/
++
++### IntelliJ IDEA ###
++.idea/modules.xml
++.idea/jarRepositories.xml
++.idea/compiler.xml
++.idea/libraries/
++*.iws
++*.iml
++*.ipr
++
++### Eclipse ###
++.apt_generated
++.classpath
++.factorypath
++.project
++.settings
++.springBeans
++.sts4-cache
++
++### NetBeans ###
++/nbproject/private/
++/nbbuild/
++/dist/
++/nbdist/
++/.nb-gradle/
++build/
++!**/src/main/**/build/
++!**/src/test/**/build/
++
++### VS Code ###
++.vscode/
++
++### Mac OS ###
++.DS_Store
+\ No newline at end of file
+Index: src/test/java/by_itAcademy_Ivanchikov_d/WebSiteTesy2.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/WebSiteTesy2.java b/src/test/java/by_itAcademy_Ivanchikov_d/WebSiteTesy2.java
+new file mode 100644
+--- /dev/null	(date 1700738818265)
++++ b/src/test/java/by_itAcademy_Ivanchikov_d/WebSiteTesy2.java	(date 1700738818265)
+@@ -0,0 +1,26 @@
++package by_itAcademy_Ivanchikov_d;
++
++import org.junit.jupiter.api.Assertions;
++import org.junit.jupiter.api.Test;
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++public class WebSiteTesy2 {
++    @Test
++    public void testDev() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://devby.io/");
++        String enterButtonlocator = "/html/body/div[2]/header/div[1]/div[3]/a";
++        WebElement enterButtonWebElement = driver.findElement(By.xpath(enterButtonlocator));
++        enterButtonWebElement.click();
++        String enterTitleOauthFormLocator = "//*[@id=\"root\"]/div/div/div/div/div/div/form/button/span/span";
++        By enterTitleOauthFormBy = By.xpath(enterTitleOauthFormLocator);
++        Thread.sleep(4000);
++        WebElement enterTitleOauthForm = driver.findElement(enterTitleOauthFormBy);
++        String actual = enterTitleOauthForm.getText();
++        Assertions.assertEquals("Войти", actual);
++    }
++}
+Index: src/test/java/by_itAcademy_Ivanchikov_d/Websitetest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/Websitetest.java b/src/test/java/by_itAcademy_Ivanchikov_d/Websitetest.java
+new file mode 100644
+--- /dev/null	(date 1699774053779)
++++ b/src/test/java/by_itAcademy_Ivanchikov_d/Websitetest.java	(date 1699774053779)
+@@ -0,0 +1,30 @@
++package by_itAcademy_Ivanchikov_d;
++
++import org.junit.jupiter.api.Assertions;
++import org.junit.jupiter.api.Test;
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++public class Websitetest {
++    @Test
++    public void testonliner() {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.onliner.by/");
++        String enterButtonlocator = "//*[@id=\"userbar\"]/div[1]/div/div/div[1]";
++        By enterButtonBy = By.xpath(enterButtonlocator);
++        WebElement enterButtonWebElement = driver.findElement(enterButtonBy);
++        enterButtonWebElement.click();
++        String enterTitleOauthFormLocator = "//*[@id=\"auth-container\"]/div/div[2]/div/form/div[3]/button";
++        By enterTitleOauthFormBy = By.xpath(enterTitleOauthFormLocator);
++        WebElement enterTitleOauthForm = driver.findElement(enterTitleOauthFormBy);
++        String actual = enterTitleOauthForm.getText();
++        Assertions.assertEquals("Войти", actual);
++
++
++
++
++    }
++}
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1699720756774)
++++ b/.idea/.gitignore	(date 1699720756774)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testjnliner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testjnliner.java b/src/test/java/by_itAcademy_Ivanchikov_d/testjnliner.java
+new file mode 100644
+--- /dev/null	(date 1700498482700)
++++ b/src/test/java/by_itAcademy_Ivanchikov_d/testjnliner.java	(date 1700498482700)
+@@ -0,0 +1,48 @@
++package by_itAcademy_Ivanchikov_d;
++import org.junit.jupiter.api.Assertions;
++import org.junit.jupiter.api.Test;
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++public class testjnliner {
++    @Test
++    public void testOnliner() {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.onliner.by/");
++
++        String enterButtonLocator = "//*[@id=\"userbar\"]/div[1]/div/div/div[1]";
++
++
++        WebElement enterButtonWebElement = driver.findElement(By.xpath(enterButtonLocator));
++        enterButtonWebElement.click();
++
++        String buttonEnter = "//*[@id=\"auth-container\"]/div/div[2]/div/form/div[3]/button";
++
++
++        WebElement buttonEnterWebElement = driver.findElement(By.xpath(buttonEnter));
++        buttonEnterWebElement.click();
++
++        String errorMassageLogin = "//*[@id=\"auth-container\"]/div/div[2]/div/form/div[1]/div/div[2]/div/div/div[2]/div";
++
++        By errorMassageLoginBy = By.xpath(errorMassageLogin);
++        WebElement errorMassageLoginWebElement = driver.findElement(errorMassageLoginBy);
++        String actualErrorMassageLogin = errorMassageLoginWebElement.getText();
++        String expectedErrorMassageLogin = "Укажите ник или e-mail";
++        Assertions.assertEquals(expectedErrorMassageLogin, actualErrorMassageLogin);
++
++        String errorMassagePassword = "//*[@id=\"auth-container\"]/div/div[2]/div/form/div[2]/div/div/div[2]/div";
++
++
++        WebElement errorMassagePasswordWebElement = driver.findElement(By.xpath(errorMassagePassword));
++        String actualErrorMassagePassword = errorMassagePasswordWebElement.getText();
++        String expectedErrorMassagePassword = "Укажите пароль";
++        Assertions.assertEquals(expectedErrorMassagePassword, actualErrorMassagePassword);
++
++
++
++    }
++}
++
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1700245844831)
++++ b/.idea/misc.xml	(date 1700245844831)
+@@ -0,0 +1,13 @@
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/OnlinerPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/OnlinerPage.java b/src/main/java/OnlinerPage.java
+new file mode 100644
+--- /dev/null	(date 1700388231391)
++++ b/src/main/java/OnlinerPage.java	(date 1700388231391)
+@@ -0,0 +1,32 @@
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++public class OnlinerPage {
++    private String enterButtonLocator = "//*[@id=\"userbar\"]/div[1]/div/div/div[1]";
++    private WebDriver driver;
++    private String enterTitleAouthFromLocator = "//*[@id=\"auth-container\"]/div/div[2]/div/form/div[3]/button";
++
++    private WebDriver webDriver;
++
++    public OnlinerPage(WebDriver driver) {
++        this.driver = driver;
++    }
++
++    public void clickEnterButton() throws InterruptedException {
++        By enterButtonLBy = By.xpath(enterButtonLocator);
++        WebElement enterButtonElement = driver.findElement(enterButtonLBy);
++        enterButtonElement.click();
++
++
++        String getTextEnterTitleAouthFrom;
++        {
++            By enterTitle0authFormBy = By.xpath(enterTitleAouthFromLocator);
++            Thread.sleep(5000);
++            WebElement enterTitleOauthFormElement = driver.findElement(enterTitle0authFormBy);
++            //  enterTitleauthFormElement.getText();
++            //return TitleOauthFormElement.getText();
++        }
++    }
++}
+\ No newline at end of file
+Index: src/main/java/AVPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AVPage.java b/src/main/java/AVPage.java
+new file mode 100644
+--- /dev/null	(date 1699782365396)
++++ b/src/main/java/AVPage.java	(date 1699782365396)
+@@ -0,0 +1,11 @@
++public class AVPage {
++
++    public String errorMessageLocator = "//*[@id=\"__next\"]/div[2]/div[2]/div[1]/div[1]/div/div[2]/div[2]/div/div[2]/form/fieldset/div[5]";
++    public String buttonSubmitLocator = "//*[@id=\"__next\"]/div[2]/div[2]/div[1]/div[1]/div/div[2]/div[2]/div/div[2]/form/fieldset/div[4]/button";
++    public String inputPasswordLocator = "//*[@id=\"loginPassword\"]";
++    public String inputEmailLocator = "//*[@id=\"authLogin\"]";
++    public String buttonLoginOptionLocator = "//*[@id=\"__next\"]/div[2]/div[2]/div[1]/div[1]/div/div[2]/div[1]/button[2]";
++    public String buttonEnterLocator = "//*[@id=\"__next\"]/div[3]/div[2]/div[1]/header/div/nav/ul[2]/li[1]/a";
++
++
++}

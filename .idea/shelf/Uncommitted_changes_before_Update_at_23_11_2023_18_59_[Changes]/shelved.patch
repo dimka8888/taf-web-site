@@ -1,0 +1,43 @@
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package by_itAcademy_Ivanchikov_d;\r\n\r\nimport by_ITAcademe_Ivanchikov_d.PassPageMy;\r\nimport org.junit.jupiter.api.Assertions;\r\nimport org.junit.jupiter.api.Test;\r\nimport org.openqa.selenium.WebDriver;\r\nimport org.openqa.selenium.chrome.ChromeDriver;\r\n\r\npublic testPassPageMy {\r\n    @Test\r\n    public void testPassPageMyAutorisationForm() throws InterruptedException {\r\n        WebDriver driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n        driver.get(\"https://pass.rw.by/ru/\");\r\n        PassPageMy passRWbyPage = new PassPageMy(driver);\r\n        passRWbyPage.clickButtonPersonalAccount();\r\n        Thread.sleep(1000);\r\n        Assertions.assertEquals(\"Авторизация\", passRWbyPage.getTextHeaderTextAutorisation());\r\n        driver.close();\r\n    }\r\n    @Test\r\n    public void testPassPageMyEmptyValues() throws InterruptedException {\r\n        WebDriver driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n        driver.get(\"https://pass.rw.by/ru/\");\r\n        PassPageMy passRWbyPage = new PassPageMy(driver);\r\n        passRWbyPage.clickButtonPersonalAccount();\r\n        Thread.sleep(1000);\r\n        passRWbyPage.clickButtonEnter();\r\n        Assertions.assertEquals(\"Заполните поле\", passRWbyPage.getTextErrorMassageLoginOrEmail());\r\n        Assertions.assertEquals(\"Заполните поле\", passRWbyPage.getTextErrorMassagePassword());\r\n        driver.close();\r\n    }\r\n    @Test\r\n    public void testPassPageMyEmptyEmail() throws InterruptedException {\r\n        WebDriver driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n        driver.get(\"https://pass.rw.by/ru/\");\r\n        PassPageMy passPageMy = new PassPageMy(driver);\r\n        passPageMy.clickButtonPersonalAccount();\r\n        passPageMy.sendKeysInputPassword(\"password\");\r\n        Thread.sleep(1000);\r\n        passPageMy.clickButtonEnter();\r\n        Assertions.assertEquals(\"Заполните поле\", passPageMy.getTextErrorMassageLoginOrEmail());\r\n        driver.close();\r\n    }\r\n    @Test\r\n    public void testPassPageMyEmptyPassword() throws InterruptedException {\r\n        WebDriver driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n        driver.get(\"https://pass.rw.by/ru/\");\r\n        PassPageMy passPageMy = new PassPageMy(driver);\r\n        passPageMy.clickButtonPersonalAccount();\r\n        passPageMy.sendKeysInputLoginOrEmail(\"login\");\r\n        Thread.sleep(1000);\r\n        passPageMy.clickButtonEnter();\r\n        Assertions.assertEquals(\"Заполните поле\", passPageMy.getTextErrorMassagePassword());\r\n        driver.close();\r\n    }\r\n    @Test\r\n    public void testPassPageMyInvalidValues() throws InterruptedException {\r\n        WebDriver driver = new ChromeDriver();\r\n        driver.manage().window().maximize();\r\n        driver.get(\"https://pass.rw.by/ru/\");\r\n        PassPageMy passPageMy = new PassPageMy(driver);\r\n        passPageMy.clickButtonPersonalAccount();\r\n        passPageMy.sendKeysInputLoginOrEmail(\"login\");\r\n        Thread.sleep(500);\r\n        passPageMy.sendKeysInputPassword(\"password\");\r\n        Thread.sleep(1000);\r\n        passPageMy.clickButtonEnter();\r\n        Assertions.assertEquals(\"Пользователь не найден\", passPageMy.getTextErrorMassageUserNotFound());\r\n        driver.close();\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java b/src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java	(revision ebfe2afdbfbd31d90922170331d60c9a2d0a902f)
++++ b/src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java	(date 1700755092184)
+@@ -6,7 +6,7 @@
+ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.chrome.ChromeDriver;
+ 
+-public testPassPageMy {
++public class testPassPageMy {
+     @Test
+     public void testPassPageMyAutorisationForm() throws InterruptedException {
+         WebDriver driver = new ChromeDriver();
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>by_itAcademy_Ivanchikov_d  </groupId>\r\n    <artifactId>PasePageMy</artifactId>\r\n    <version>1.0</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>21</maven.compiler.source>\r\n        <maven.compiler.target>21</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-api</artifactId>\r\n            <version>5.10.0</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-api</artifactId>\r\n            <version>5.10.0</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-api</artifactId>\r\n            <version>5.10.1</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n\r\n            <dependency>\r\n                <groupId>org.junit.jupiter</groupId>\r\n                <artifactId>junit-jupiter-api</artifactId>\r\n                <version>5.10.0</version>\r\n                <scope>test</scope>\r\n            </dependency>\r\n\r\n            <dependency>\r\n                <groupId>org.junit.jupiter</groupId>\r\n                <artifactId>junit-jupiter-engine</artifactId>\r\n                <version>5.10.0</version>\r\n                <scope>test</scope>\r\n            </dependency>\r\n\r\n            <dependency>\r\n                <groupId>org.seleniumhq.selenium</groupId>\r\n                <artifactId>selenium-java</artifactId>\r\n                <version>4.15.0</version>\r\n            </dependency>\r\n\r\n    </dependencies>\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision ebfe2afdbfbd31d90922170331d60c9a2d0a902f)
++++ b/pom.xml	(date 1700755041780)
+@@ -3,10 +3,9 @@
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+-
+-    <groupId>by_itAcademy_Ivanchikov_d  </groupId>
+-    <artifactId>PasePageMy</artifactId>
+-    <version>1.0</version>
++    <groupId>org.example</groupId>
++    <artifactId>untitledsa</artifactId>
++    <version>1.0-SNAPSHOT</version>
+ 
+     <properties>
+         <maven.compiler.source>21</maven.compiler.source>

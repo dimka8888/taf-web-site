@@ -1,0 +1,729 @@
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/PassPageMy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/PassPageMy.java b/src/main/java/by/it/academy/ivanchikov/PassPageMy.java
+rename from src/main/java/by_ITAcademe_Ivanchikov_d/PassPageMy.java
+rename to src/main/java/by/it/academy/ivanchikov/PassPageMy.java
+--- a/src/main/java/by_ITAcademe_Ivanchikov_d/PassPageMy.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/main/java/by/it/academy/ivanchikov/PassPageMy.java	(date 1700916759989)
+@@ -1,4 +1,4 @@
+-package by_ITAcademe_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java b/src/main/java/by/it/academy/ivanchikov/PassPage.java
+rename from src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java
+rename to src/main/java/by/it/academy/ivanchikov/PassPage.java
+--- a/src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/main/java/by/it/academy/ivanchikov/PassPage.java	(date 1700916760038)
+@@ -1,4 +1,4 @@
+-package by_ITAcademe_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testPass.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testPass.java b/src/test/java/by/it/academy/ivanchikov/testPass.java
+rename from src/test/java/by_itAcademy_Ivanchikov_d/testPass.java
+rename to src/test/java/by/it/academy/ivanchikov/testPass.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testPass.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/test/java/by/it/academy/ivanchikov/testPass.java	(date 1700916759999)
+@@ -1,6 +1,5 @@
+-package by_itAcademy_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+-import by_ITAcademe_Ivanchikov_d.PassPage;
+ import org.junit.jupiter.api.Assertions;
+ import org.junit.jupiter.api.Test;
+ import org.openqa.selenium.By;
+@@ -13,34 +12,23 @@
+     public void testPass() throws InterruptedException {
+         WebDriver driver = new ChromeDriver();
+         driver.manage().window().maximize();
+-
+         driver.get("https://pass.rw.by/ru/");
+-
+         PassPage passPage = new PassPage(driver);
+         Thread.sleep(2000);
+-        {
+-            WebElement inputButtonMain = driver.findElement(By.xpath(passPage.inputButtonMain));
+-            inputButtonMain.click();
+-            Thread.sleep(2000);
+-        }
+-        {
+-            WebElement tabLinkEmailElement = driver.findElement(By.xpath(passPage.tabLinkEmail));
+-            tabLinkEmailElement.click();
+-            Thread.sleep(2000);
+-        }
+-        {
++        WebElement inputButtonMain = driver.findElement(By.xpath(passPage.inputButtonMain));
++        inputButtonMain.click();
++        Thread.sleep(2000);
++        WebElement tabLinkEmailElement = driver.findElement(By.xpath(passPage.tabLinkEmail));
++        tabLinkEmailElement.click();
++        Thread.sleep(2000);
+         WebElement inputTextEmail = driver.findElement(By.xpath(passPage.inputTextEmail));
+-        inputTextEmail.sendKeys("dmitry@mailru");}
+-        {
+-
++        inputTextEmail.sendKeys("dmitry@mailru");
+         WebElement inputButtonForm = driver.findElement(By.xpath(passPage.inputButtonForm));
+         inputButtonForm.click();
+-        Thread.sleep(2000);}
+-        {
++        Thread.sleep(2000);
+         WebElement textError = driver.findElement(By.xpath(passPage.textError));
+         String actualError = textError.getText();
+-        Assertions.assertEquals("Заполните поле", actualError);}
+-
++        Assertions.assertEquals("Заполните поле", actualError);
+         driver.quit();
+     }
+ 
+Index: src/test/java/by/it/academy/ivanchikov/testVek21.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by/it/academy/ivanchikov/testVek21.java b/src/test/java/by/it/academy/ivanchikov/testVek21.java
+new file mode 100644
+--- /dev/null	(date 1700916760008)
++++ b/src/test/java/by/it/academy/ivanchikov/testVek21.java	(date 1700916760008)
+@@ -0,0 +1,110 @@
++package by.it.academy.ivanchikov;
++
++import org.junit.jupiter.api.Assertions;
++import org.junit.jupiter.api.Test;
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++public class testVek21 {
++    @Test
++    public void test21VekFieldsEmpty() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.21vek.by/");
++        Vek21 vek21 = new Vek21(driver);
++        vek21.clickButtonAccept();
++        Thread.sleep(1000);
++        vek21.clickButtonAccount();
++        Thread.sleep(1000);
++        vek21.clickButtonInput();
++        vek21.clickButtonInputLoginForm();
++        Thread.sleep(1000);
++        String actualLogin = vek21.getTextErrorLogin();
++        Assertions.assertEquals("Электронная почта не указана", actualLogin);
++        String actualPassword = vek21.getTextErrorPassword();
++        Assertions.assertEquals("Пароль не указан", actualPassword);
++        driver.quit();
++    }
++
++    @Test
++    public void test21VekFieldsPasswordEmpty() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.21vek.by/");
++        Vek21 vek21 = new Vek21(driver);
++        WebElement buttonAccept = driver.findElement(By.xpath(vek21.buttonAccept));
++        buttonAccept.click();
++        WebElement buttonAccount = driver.findElement(By.xpath(vek21.buttonAccount));
++        buttonAccount.click();
++        Thread.sleep(1000);
++        WebElement buttonInput = driver.findElement(By.xpath(vek21.buttonInput));
++        buttonInput.click();
++        Thread.sleep(1000);
++        WebElement inputTextEmail = driver.findElement(By.xpath(vek21.inputTextEmail));
++        inputTextEmail.sendKeys("mail@mail.ru");
++        Thread.sleep(1000);
++        WebElement ButtonInputLoginForm = driver.findElement(By.xpath(vek21.ButtonInputLoginForm));
++        ButtonInputLoginForm.click();
++        Thread.sleep(1000);
++        WebElement errorMessagePassword = driver.findElement(By.xpath(vek21.textErrorPassword));
++        String actualPassword = errorMessagePassword.getText();
++        Assertions.assertEquals("Пароль не указан", actualPassword);
++        driver.quit();
++    }
++
++    @Test
++    public void test21VekFieldsEmailEmpty() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.21vek.by/");
++        Vek21 vek21 = new Vek21(driver);
++        WebElement buttonAccept = driver.findElement(By.xpath(vek21.buttonAccept));
++        buttonAccept.click();
++        WebElement buttonAccount = driver.findElement(By.xpath(vek21.buttonAccount));
++        buttonAccount.click();
++        Thread.sleep(1000);
++        WebElement buttonInput = driver.findElement(By.xpath(vek21.buttonInput));
++        buttonInput.click();
++        Thread.sleep(1000);
++        WebElement inputTextPassword = driver.findElement(By.xpath(vek21.inputTextPassword));
++        inputTextPassword.sendKeys("123");
++        Thread.sleep(1000);
++        WebElement ButtonInputLoginForm = driver.findElement(By.xpath(vek21.ButtonInputLoginForm));
++        ButtonInputLoginForm.click();
++        Thread.sleep(1000);
++        WebElement errorMessageLogin = driver.findElement(By.xpath(vek21.textErrorLogin));
++        String actualLogin = errorMessageLogin.getText();
++        Assertions.assertEquals("Электронная почта не указана", actualLogin);
++        driver.quit();
++    }
++
++    @Test
++    public void test21Vek() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.21vek.by/");
++        Vek21 vek21 = new Vek21(driver);
++        WebElement buttonAccept = driver.findElement(By.xpath(vek21.buttonAccept));
++        buttonAccept.click();
++        WebElement buttonAccount = driver.findElement(By.xpath(vek21.buttonAccount));
++        buttonAccount.click();
++        Thread.sleep(1000);
++        WebElement buttonInput = driver.findElement(By.xpath(vek21.buttonInput));
++        buttonInput.click();
++        Thread.sleep(1000);
++        WebElement inputTextEmail = driver.findElement(By.xpath(vek21.inputTextEmail));
++        inputTextEmail.sendKeys("mail@mail.ru");
++        WebElement inputTextPassword = driver.findElement(By.xpath(vek21.inputTextPassword));
++        inputTextPassword.sendKeys("123");
++        Thread.sleep(1000);
++        WebElement ButtonInputLoginForm = driver.findElement(By.xpath(vek21.ButtonInputLoginForm));
++        ButtonInputLoginForm.click();
++        Thread.sleep(1000);
++        WebElement errorMessagePassword = driver.findElement(By.xpath(vek21.textErrorPassword));
++        String actualPassword = errorMessagePassword.getText();
++        Assertions.assertEquals("Неправильный пароль. \n" + "Сбросить пароль?", actualPassword);
++        driver.quit();
++    }
++}
+Index: src/main/java/by/it/academy/ivanchikov/Vek21.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by/it/academy/ivanchikov/Vek21.java b/src/main/java/by/it/academy/ivanchikov/Vek21.java
+new file mode 100644
+--- /dev/null	(date 1700916760049)
++++ b/src/main/java/by/it/academy/ivanchikov/Vek21.java	(date 1700916760049)
+@@ -0,0 +1,47 @@
++package by.it.academy.ivanchikov;
++
++
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++
++public class Vek21 {
++        public String buttonAccept = "//[@id=\"modal-cookie\"]/div/div[2]/div/button[3]";
++        public String buttonAccount = "//[@id=\"header\"]/div/div[3]/div/div[3]/div/div/div/button";
++        public String buttonInput = "//[@id=\"userToolsDropDown\"]/div/div[1]/div[2]/button";
++        public String inputTextEmail = "//[@id=\"login-email\"]";
++        public String inputTextPassword = "//[@id=\"login-password\"]";
++        public String ButtonInputLoginForm = "//[@id=\"default-:R2mm:-modal\"]/div/div/div[2]/div/div/form/div/div[3]/button";
++        public String textErrorLogin = "//[@id=\"default-:R2mm:-modal\"]/div/div/div[2]/div/div/form/div/div[1]/div[3]/span[2]";
++        public String textErrorPassword = "//[@id=\"default-:R2mm:-modal\"]/div/div/div[2]/div/div/form/div/div[2]/div[3]/span[2]";
++        WebDriver driver;
++
++        public Vek21(WebDriver driver) {
++
++            this.driver = driver;
++        }
++
++        public void clickButtonAccept() {
++            driver.findElement(By.xpath(buttonAccept)).click();
++        }
++
++        public void clickButtonAccount() {
++            driver.findElement(By.xpath(buttonAccount)).click();
++        }
++
++        public void clickButtonInput() {
++            driver.findElement(By.xpath(buttonInput)).click();
++        }
++
++        public void clickButtonInputLoginForm() {
++            driver.findElement(By.xpath(ButtonInputLoginForm)).click();
++        }
++
++        public String getTextErrorLogin() {
++            return driver.findElement(By.xpath(textErrorLogin)).getText();
++        }
++
++        public String getTextErrorPassword() {
++            return driver.findElement(By.xpath(textErrorPassword)).getText();
++        }
++    }
++
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>by_itAcademy_Ivanchikov_d  </groupId>\r\n    <artifactId>PasePageMy</artifactId>\r\n    <version>1.0</version>\r\n\r\n    <properties>\r\n        <maven.compiler.source>21</maven.compiler.source>\r\n        <maven.compiler.target>21</maven.compiler.target>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-api</artifactId>\r\n            <version>5.10.0</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-api</artifactId>\r\n            <version>5.10.0</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->\r\n        <dependency>\r\n            <groupId>org.junit.jupiter</groupId>\r\n            <artifactId>junit-jupiter-api</artifactId>\r\n            <version>5.10.1</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n\r\n            <dependency>\r\n                <groupId>org.junit.jupiter</groupId>\r\n                <artifactId>junit-jupiter-api</artifactId>\r\n                <version>5.10.0</version>\r\n                <scope>test</scope>\r\n            </dependency>\r\n\r\n            <dependency>\r\n                <groupId>org.junit.jupiter</groupId>\r\n                <artifactId>junit-jupiter-engine</artifactId>\r\n                <version>5.10.0</version>\r\n                <scope>test</scope>\r\n            </dependency>\r\n\r\n            <dependency>\r\n                <groupId>org.seleniumhq.selenium</groupId>\r\n                <artifactId>selenium-java</artifactId>\r\n                <version>4.15.0</version>\r\n            </dependency>\r\n\r\n    </dependencies>\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/pom.xml	(date 1700916760067)
+@@ -4,9 +4,9 @@
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+ 
+-    <groupId>by_itAcademy_Ivanchikov_d  </groupId>
++    <groupId>by-it-academy-ivanchikov  </groupId>
+     <artifactId>PasePageMy</artifactId>
+-    <version>1.0</version>
++    <version>1.0.0</version>
+ 
+     <properties>
+         <maven.compiler.source>21</maven.compiler.source>
+Index: src/main/java/by/it/academy/ivanchikov/KvitkiCopi.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by/it/academy/ivanchikov/KvitkiCopi.java b/src/main/java/by/it/academy/ivanchikov/KvitkiCopi.java
+new file mode 100644
+--- /dev/null	(date 1700916760027)
++++ b/src/main/java/by/it/academy/ivanchikov/KvitkiCopi.java	(date 1700916760027)
+@@ -0,0 +1,56 @@
++package by.it.academy.ivanchikov;
++
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++
++public class KvitkiCopi {
++    public String inputButtonAccept = "//[@id=\"CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll\"]";
++    //Кнопка ввода Принять
++    public String inputButtonClose = "/html/body/div[7]/div";
++   // Кнопка ввода Закрыть
++    public String inputButton = "/html/body/div[3]/div[2]/div/app-user-account-link";
++    //кнопка ввода
++    public String inputTextEmail = "/html/body/div[9]/div[2]/div/mat-dialog-container/div/div/app-user-auth-form/div[2]/mat-tab-group/div/mat-tab-body[1]/div/app-user-login-form/app-collapsible/div/app-form-builder/form/app-collapsible[1]/app-email-input/div/input";
++//введите текстовое сообщение электронной почты
++    public String inputTextPassword = "/html/body/div[9]/div[2]/div/mat-dialog-container/div/div/app-user-auth-form/div[2]/mat-tab-group/div/mat-tab-body[1]/div/app-user-login-form/app-collapsible/div/app-form-builder/form/app-collapsible[2]/app-password-input/div/input";
++//введите текстовый пароль
++    public String inputButtonForm = "//[@id=\"mat-tab-content-0-0\"]/div/app-user-login-form/app-collapsible/div/app-ui-button/button";
++    //Форма кнопки ввода
++    public String textErrorEmail = "//[@id=\"mat-tab-content-0-0\"]/div/app-user-login-form/app-collapsible/div/app-form-builder/form/app-collapsible[1]/app-email-input/app-field-error/app-collapsible";
++    //текстовое сообщение об ошибке Электронная почта
++    public String textErrorPassword = "//[@id=\"mat-tab-content-0-0\"]/div/app-user-login-form/app-collapsible/div/app-form-builder/form/app-collapsible[2]/app-password-input/app-field-error/app-collapsible";
++    //текст Ошибка Пароль
++    public String textErrorMain = "/html/body/div[9]/div[4]/div/mat-dialog-container/div/div/app-info-dialog-content/div[3]";
++    //текст Ошибка Основная
++    WebDriver driver;
++    public KvitkiCopi(WebDriver driver) {
++        this.driver = driver;
++    }
++    public void clickinputButtonClose() {
++        driver.findElement(By.xpath(inputButtonClose)).click();
++    }
++    public void clickinputButtonAccept() {
++        driver.findElement(By.xpath(inputButtonAccept)).click();
++    }
++    public void clickInputButton() {
++        driver.findElement(By.xpath(inputButton)).click();
++    }
++    public void sendKeysInputTextEmail(String email) {
++        driver.findElement(By.xpath(inputTextEmail)).sendKeys(email);
++    }
++    public void sendKeysInputTextPassword(String email) {
++        driver.findElement(By.xpath(inputTextPassword)).sendKeys(email);
++    }
++    public void clickInputButtonForm() {
++        driver.findElement(By.xpath(inputButtonForm)).click();
++    }
++    public String getTextErrorLogin() {
++        return driver.findElement(By.xpath(textErrorEmail)).getText();
++    }
++    public String getTextErrorPassword() {
++        return driver.findElement(By.xpath(textErrorPassword)).getText();
++    }
++    public String getTextErrorMain() {
++        return driver.findElement(By.xpath(textErrorMain)).getText();
++    }
++}
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/KvitkiByPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/KvitkiByPage.java b/src/main/java/by/it/academy/ivanchikov/KvitkiByPage.java
+rename from src/main/java/by_ITAcademe_Ivanchikov_d/KvitkiByPage.java
+rename to src/main/java/by/it/academy/ivanchikov/KvitkiByPage.java
+--- a/src/main/java/by_ITAcademe_Ivanchikov_d/KvitkiByPage.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/main/java/by/it/academy/ivanchikov/KvitkiByPage.java	(date 1700916760053)
+@@ -1,4 +1,4 @@
+-package by_ITAcademe_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testKvitkiByPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testKvitkiByPage.java b/src/test/java/by/it/academy/ivanchikov/testKvitkiByPage.java
+rename from src/test/java/by_itAcademy_Ivanchikov_d/testKvitkiByPage.java
+rename to src/test/java/by/it/academy/ivanchikov/testKvitkiByPage.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testKvitkiByPage.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/test/java/by/it/academy/ivanchikov/testKvitkiByPage.java	(date 1700916759995)
+@@ -1,6 +1,5 @@
+-package by_itAcademy_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+-import by_ITAcademe_Ivanchikov_d.KvitkiByPage;
+ import org.junit.jupiter.api.Assertions;
+ import org.junit.jupiter.api.Test;
+ import org.openqa.selenium.WebDriver;
+Index: src/test/java/by/it/academy/ivanchikov/testCalcPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by/it/academy/ivanchikov/testCalcPage.java b/src/test/java/by/it/academy/ivanchikov/testCalcPage.java
+new file mode 100644
+--- /dev/null	(date 1700916760073)
++++ b/src/test/java/by/it/academy/ivanchikov/testCalcPage.java	(date 1700916760073)
+@@ -0,0 +1,19 @@
++package by.it.academy.ivanchikov;
++
++import org.junit.jupiter.api.Test;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++public class testCalcPage {
++    @Test
++    public void testCalcPage() {
++        CalcPage calcPage=new CalcPage();
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://svyatoslav.biz/testlab/wt/index.php");
++        driver.manage().window().maximize();
++
++
++
++    }
++}
+Index: src/main/java/by/it/academy/ivanchikov/CalcPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by/it/academy/ivanchikov/CalcPage.java b/src/main/java/by/it/academy/ivanchikov/CalcPage.java
+new file mode 100644
+--- /dev/null	(date 1700916760013)
++++ b/src/main/java/by/it/academy/ivanchikov/CalcPage.java	(date 1700916760013)
+@@ -0,0 +1,23 @@
++package by.it.academy.ivanchikov;
++
++
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++
++public class CalcPage {
++    public class testCalcPage {
++        public String inputButtonRashet = "//input[@type=\"submit\"]";
++
++        public testCalcPage(WebDriver driver) {
++            this.driver = driver;
++        }
++
++        public testCalcPage(String inputButtonRashet) {
++            this.inputButtonRashet = inputButtonRashet;
++        }
++
++        WebDriver driver;
++
++    }
++
++}
+\ No newline at end of file
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java b/src/test/java/by/it/academy/ivanchikov/testPassPageMy.java
+rename from src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java
+rename to src/test/java/by/it/academy/ivanchikov/testPassPageMy.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/test/java/by/it/academy/ivanchikov/testPassPageMy.java	(date 1700916760034)
+@@ -1,6 +1,5 @@
+-package by_itAcademy_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+-import by_ITAcademe_Ivanchikov_d.PassPageMy;
+ import org.junit.jupiter.api.Assertions;
+ import org.junit.jupiter.api.Test;
+ import org.openqa.selenium.WebDriver;
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java b/src/main/java/by/it/academy/ivanchikov/OzPage.java
+rename from src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java
+rename to src/main/java/by/it/academy/ivanchikov/OzPage.java
+--- a/src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/main/java/by/it/academy/ivanchikov/OzPage.java	(date 1700916760043)
+@@ -1,4 +1,4 @@
+-package by_ITAcademe_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+ public class OzPage {
+     public String inputButtonMain = "//*[@id=\"top-page\"]/header/div[1]/div/div[1]";
+@@ -8,4 +8,62 @@
+     public String inputButtonForm = "//*[@id=\"loginForm\"]/button";
+     public String textError = "//*[@id=\"test\"]/div/div";
+     public String textEnter = "//*[@id=\"loginPopupIntro\"]";
++
++    public String getTabLinkEmail() {
++        return tabLinkEmail;
++    }
++
++    public void setTabLinkEmail(String tabLinkEmail) {
++        this.tabLinkEmail = tabLinkEmail;
++    }
++
++    public String getInputTextEmail() {
++        return inputTextEmail;
++    }
++
++    public void setInputTextEmail(String inputTextEmail) {
++        this.inputTextEmail = inputTextEmail;
++    }
++
++    public String getInputTextPassword() {
++        return inputTextPassword;
++    }
++
++    public void setInputTextPassword(String inputTextPassword) {
++        this.inputTextPassword = inputTextPassword;
++    }
++
++    public String getInputButtonForm() {
++        return inputButtonForm;
++    }
++
++    public void setInputButtonForm(String inputButtonForm) {
++        this.inputButtonForm = inputButtonForm;
++    }
++
++    public String getTextError() {
++        return textError;
++    }
++
++    public void setTextError(String textError) {
++        this.textError = textError;
++    }
++
++    public String getTextEnter() {
++        return textEnter;
++    }
++
++    public void setTextEnter(String textEnter) {
++        this.textEnter = textEnter;
++    }
++
++    public String getInputButtonMain() {
++        return inputButtonMain;
++    }
++
++    public void setInputButtonMain(String inputButtonMain) {
++        this.inputButtonMain = inputButtonMain;
++    }
++
++
+ }
+Index: src/test/java/by/it/academy/ivanchikov/testKvitkiCopi.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by/it/academy/ivanchikov/testKvitkiCopi.java b/src/test/java/by/it/academy/ivanchikov/testKvitkiCopi.java
+new file mode 100644
+--- /dev/null	(date 1700916760004)
++++ b/src/test/java/by/it/academy/ivanchikov/testKvitkiCopi.java	(date 1700916760004)
+@@ -0,0 +1,104 @@
++package by.it.academy.ivanchikov;
++
++import org.junit.jupiter.api.Assertions;
++import org.junit.jupiter.api.Test;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++public class testKvitkiCopi {
++    public void testKvitkiFieldsEmpty() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.kvitki.by/");
++        KvitkiCopi kvitki = new KvitkiCopi(driver);
++        kvitki.clickinputButtonAccept();
++        Thread.sleep(1000);
++        kvitki.clickinputButtonClose();
++        Thread.sleep(1000);
++        kvitki.clickInputButton();
++        Thread.sleep(1000);
++        kvitki.sendKeysInputTextEmail("");
++        kvitki.sendKeysInputTextPassword("");
++        kvitki.clickInputButtonForm();
++        Thread.sleep(1000);
++        Assertions.assertEquals("Пожалуйста, заполните поле (Эл. почта)", kvitki.getTextErrorLogin());
++        Assertions.assertEquals("Пожалуйста, заполните поле (Пароль)", kvitki.getTextErrorPassword());
++        driver.quit();
++    }
++
++    @Test
++    public void testKvitkiEmailPasswordClick() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.kvitki.by/");
++        KvitkiCopi kvitki = new KvitkiCopi(driver);
++        kvitki.clickinputButtonAccept();
++        Thread.sleep(1000);
++        kvitki.clickinputButtonClose();
++        Thread.sleep(1000);
++        kvitki.clickInputButton();
++        Thread.sleep(1000);
++        kvitki.sendKeysInputTextEmail("");
++        kvitki.sendKeysInputTextPassword("");
++        Thread.sleep(1000);
++        Assertions.assertEquals("Пожалуйста, заполните поле (Эл. почта)", kvitki.getTextErrorLogin());
++        driver.quit();
++    }
++
++    @Test
++    public void testKvitkiPasswordEmailClick() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.kvitki.by/");
++        KvitkiCopi kvitki = new KvitkiCopi(driver);
++        kvitki.clickinputButtonAccept();
++        Thread.sleep(1000);
++        kvitki.clickinputButtonClose();
++        Thread.sleep(1000);
++        kvitki.clickInputButton();
++        Thread.sleep(1000);
++        kvitki.sendKeysInputTextPassword("");
++        kvitki.sendKeysInputTextEmail("");
++        Thread.sleep(1000);
++        Assertions.assertEquals("Пожалуйста, заполните поле (Пароль)", kvitki.getTextErrorPassword());
++        driver.quit();
++    }
++    @Test
++    public void testKvitkiIncorrectEmail() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.kvitki.by/");
++        KvitkiCopi kvitki = new KvitkiCopi(driver);
++        kvitki.clickinputButtonAccept();
++        Thread.sleep(1000);
++        kvitki.clickinputButtonClose();
++        Thread.sleep(1000);
++        kvitki.clickInputButton();
++        Thread.sleep(1000);
++        kvitki.sendKeysInputTextEmail("123");
++        kvitki.sendKeysInputTextPassword("");
++        Thread.sleep(1000);
++        Assertions.assertEquals("Пожалуйста, введите адрес электронной почты в правильном формате: name@example.com", kvitki.getTextErrorLogin());
++        driver.quit();
++    }
++
++    @Test
++    public void testKvitkiNotExistUser() throws InterruptedException {
++        WebDriver driver = new ChromeDriver();
++        driver.manage().window().maximize();
++        driver.get("https://www.kvitki.by/");
++        KvitkiCopi kvitki = new KvitkiCopi(driver);
++        kvitki.clickinputButtonAccept();
++        Thread.sleep(1000);
++        kvitki.clickinputButtonClose();
++        Thread.sleep(1000);
++        kvitki.clickInputButton();
++        Thread.sleep(1000);
++        kvitki.sendKeysInputTextEmail("Dmitry@mail.ru");
++        kvitki.sendKeysInputTextPassword("123");
++        kvitki.clickInputButtonForm();
++        Thread.sleep(2000);
++        Assertions.assertEquals("Электронная почта или пароль недействительны. Система была обновлена, и в связи с этим мы перешли на вход по электронной почте.", kvitki.getTextErrorMain());
++        driver.quit();
++    }
++}
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testOz.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testOz.java b/src/test/java/by/it/academy/ivanchikov/testOz.java
+rename from src/test/java/by_itAcademy_Ivanchikov_d/testOz.java
+rename to src/test/java/by/it/academy/ivanchikov/testOz.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testOz.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/test/java/by/it/academy/ivanchikov/testOz.java	(date 1700916760021)
+@@ -1,6 +1,5 @@
+-package by_itAcademy_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+-import by_ITAcademe_Ivanchikov_d.OzPage;
+ import org.junit.jupiter.api.Assertions;
+ import org.junit.jupiter.api.Test;
+ import org.openqa.selenium.By;
+@@ -50,43 +49,5 @@
+     }
+ 
+ 
+-    public static class PassPageMy {
+-                private String buttonPersonalAccount = "//[@id=\"db\"]/div[1]/div[1]/div/header/div/div[3]/div[3]/ul/li[2]/a/span[2]";
+-            private String headerTextAutorisation = "//[@id=\"auth-popup\"]/div/div/div[1]/div";
+-            private String inputLoginOrEmail = "//[@id=\"form-auth\"]/fieldset/div[1]/label/div[2]/input";
+-            private String inputPassword = "//[@id=\"form-auth\"]/fieldset/div[2]/div[1]/div/label/div[2]/input";
+-            private String buttonEnter = "//[@id=\"form-auth\"]/fieldset/div[3]/input";
+-            private String errorMassageLoginOrEmail = "//[@id=\"login-error\"]";
+-            private String errorMassagePassword = "//[@id=\"password-error\"]";
+-            private String errorMassageUserNotFound = "//[@id=\"auth-popup\"]/div/div/div[2]/div[2]/div";
+-            WebDriver driver;
+ 
+-            public PassPageMy(WebDriver driver) {
+-                this.driver = driver;
+-            }
+-            public void clickButtonPersonalAccount() {
+-                driver.findElement(By.xpath(buttonPersonalAccount)).click();
+-            }
+-            public void clickButtonEnter() {
+-                driver.findElement(By.xpath(buttonEnter)).click();
+-            }
+-            public void sendKeysInputLoginOrEmail(String loginOrEmail) {
+-                driver.findElement(By.xpath(inputLoginOrEmail)).sendKeys(loginOrEmail);
+-            }
+-            public void sendKeysInputPassword(String password) {
+-                driver.findElement(By.xpath(inputPassword)).sendKeys(password);
+-            }
+-            public String getTextHeaderTextAutorisation() {
+-                return driver.findElement(By.xpath(headerTextAutorisation)).getText();
+-            }
+-            public String getTextErrorMassageLoginOrEmail() {
+-                return driver.findElement(By.xpath(errorMassageLoginOrEmail)).getText();
+-            }
+-            public String getTextErrorMassagePassword() {
+-                return driver.findElement(By.xpath(errorMassagePassword)).getText();
+-            }
+-            public String getTextErrorMassageUserNotFound() {
+-                return driver.findElement(By.xpath(errorMassageUserNotFound)).getText();
+-            }
+-        }
+ }

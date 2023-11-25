@@ -1,0 +1,140 @@
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testKvitkiByPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testKvitkiByPage.java b/src/test/java/by/it/academy/ivanchikov/testKvitkiByPage.java
+rename from src/test/java/by_itAcademy_Ivanchikov_d/testKvitkiByPage.java
+rename to src/test/java/by/it/academy/ivanchikov/testKvitkiByPage.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testKvitkiByPage.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/test/java/by/it/academy/ivanchikov/testKvitkiByPage.java	(date 1700918055858)
+@@ -1,6 +1,6 @@
+-package by_itAcademy_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+-import by_ITAcademe_Ivanchikov_d.KvitkiByPage;
++import by.it.academe.ivanchikov.KvitkiByPage;
+ import org.junit.jupiter.api.Assertions;
+ import org.junit.jupiter.api.Test;
+ import org.openqa.selenium.WebDriver;
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/KvitkiByPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/KvitkiByPage.java b/src/main/java/by/it/academe/ivanchikov/KvitkiByPage.java
+rename from src/main/java/by_ITAcademe_Ivanchikov_d/KvitkiByPage.java
+rename to src/main/java/by/it/academe/ivanchikov/KvitkiByPage.java
+--- a/src/main/java/by_ITAcademe_Ivanchikov_d/KvitkiByPage.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/main/java/by/it/academe/ivanchikov/KvitkiByPage.java	(date 1700918055832)
+@@ -1,4 +1,4 @@
+-package by_ITAcademe_Ivanchikov_d;
++package by.it.academe.ivanchikov;
+ 
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testOz.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testOz.java b/src/test/java/by/it/academy/ivanchikov/testOz.java
+rename from src/test/java/by_itAcademy_Ivanchikov_d/testOz.java
+rename to src/test/java/by/it/academy/ivanchikov/testOz.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testOz.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/test/java/by/it/academy/ivanchikov/testOz.java	(date 1700918055849)
+@@ -1,6 +1,6 @@
+-package by_itAcademy_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+-import by_ITAcademe_Ivanchikov_d.OzPage;
++import by.it.academe.ivanchikov.OzPage;
+ import org.junit.jupiter.api.Assertions;
+ import org.junit.jupiter.api.Test;
+ import org.openqa.selenium.By;
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java b/src/test/java/by/it/academy/ivanchikov/testPassPageMy.java
+rename from src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java
+rename to src/test/java/by/it/academy/ivanchikov/testPassPageMy.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/test/java/by/it/academy/ivanchikov/testPassPageMy.java	(date 1700918055842)
+@@ -1,6 +1,6 @@
+-package by_itAcademy_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+-import by_ITAcademe_Ivanchikov_d.PassPageMy;
++import by.it.academe.ivanchikov.PassPageMy;
+ import org.junit.jupiter.api.Assertions;
+ import org.junit.jupiter.api.Test;
+ import org.openqa.selenium.WebDriver;
+Index: src/test/java/by_itAcademy_Ivanchikov_d/testPass.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/by_itAcademy_Ivanchikov_d/testPass.java b/src/test/java/by/it/academy/ivanchikov/testPass.java
+rename from src/test/java/by_itAcademy_Ivanchikov_d/testPass.java
+rename to src/test/java/by/it/academy/ivanchikov/testPass.java
+--- a/src/test/java/by_itAcademy_Ivanchikov_d/testPass.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/test/java/by/it/academy/ivanchikov/testPass.java	(date 1700918055866)
+@@ -1,6 +1,6 @@
+-package by_itAcademy_Ivanchikov_d;
++package by.it.academy.ivanchikov;
+ 
+-import by_ITAcademe_Ivanchikov_d.PassPage;
++import by.it.academe.ivanchikov.PassPage;
+ import org.junit.jupiter.api.Assertions;
+ import org.junit.jupiter.api.Test;
+ import org.openqa.selenium.By;
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java b/src/main/java/by/it/academe/ivanchikov/PassPage.java
+rename from src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java
+rename to src/main/java/by/it/academe/ivanchikov/PassPage.java
+--- a/src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/main/java/by/it/academe/ivanchikov/PassPage.java	(date 1700918055854)
+@@ -1,4 +1,4 @@
+-package by_ITAcademe_Ivanchikov_d;
++package by.it.academe.ivanchikov;
+ 
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java b/src/main/java/by/it/academe/ivanchikov/OzPage.java
+rename from src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java
+rename to src/main/java/by/it/academe/ivanchikov/OzPage.java
+--- a/src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/main/java/by/it/academe/ivanchikov/OzPage.java	(date 1700918055861)
+@@ -1,4 +1,4 @@
+-package by_ITAcademe_Ivanchikov_d;
++package by.it.academe.ivanchikov;
+ 
+ public class OzPage {
+     public String inputButtonMain = "//*[@id=\"top-page\"]/header/div[1]/div/div[1]";
+Index: src/main/java/by_ITAcademe_Ivanchikov_d/PassPageMy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/by_ITAcademe_Ivanchikov_d/PassPageMy.java b/src/main/java/by/it/academe/ivanchikov/PassPageMy.java
+rename from src/main/java/by_ITAcademe_Ivanchikov_d/PassPageMy.java
+rename to src/main/java/by/it/academe/ivanchikov/PassPageMy.java
+--- a/src/main/java/by_ITAcademe_Ivanchikov_d/PassPageMy.java	(revision 5b0ddeacf2a28cc7561c1cf7841a3b845a5cb7ec)
++++ b/src/main/java/by/it/academe/ivanchikov/PassPageMy.java	(date 1700918055871)
+@@ -1,4 +1,4 @@
+-package by_ITAcademe_Ivanchikov_d;
++package by.it.academe.ivanchikov;
+ 
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
