@@ -4,11 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8bb8c028-2b76-4958-8c9a-f6169e075d47" name="Changes" comment="taf-web Site" />
+    <list default="true" id="8bb8c028-2b76-4958-8c9a-f6169e075d47" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/ivanchikov/KvitkiByPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/ivanchikov/OzPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/ivanchikov/RwByPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/by/itacademy/ivanchikov/VekByPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/itacademy/ivanchikov/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/itacademy/ivanchikov/KvitkiByTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/itacademy/ivanchikov/OzTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/itacademy/ivanchikov/RwByTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/by/itacademy/ivanchikov/VekByTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by_ITAcademe_Ivanchikov_d/KvitkiByPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by_ITAcademe_Ivanchikov_d/OzPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by_ITAcademe_Ivanchikov_d/PassPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by_ITAcademe_Ivanchikov_d/PassPageMy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by_itAcademy_Ivanchikov_d/testKvitkiByPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by_itAcademy_Ivanchikov_d/testOz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by_itAcademy_Ivanchikov_d/testPass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/by_itAcademy_Ivanchikov_d/testPassPageMy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by_ITAcademe_Ivanchikov_d/CalcPage$testCalcPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by_ITAcademe_Ivanchikov_d/CalcPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by_ITAcademe_Ivanchikov_d/KvitkiCopi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by_ITAcademe_Ivanchikov_d/Vek21.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/by_itAcademy_Ivanchikov_d/testCalcPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/by_itAcademy_Ivanchikov_d/testKvitkiByPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/by_itAcademy_Ivanchikov_d/testKvitkiByPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/by_itAcademy_Ivanchikov_d/testKvitkiCopi.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/by_itAcademy_Ivanchikov_d/testPass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/by_itAcademy_Ivanchikov_d/testPass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/by_itAcademy_Ivanchikov_d/testVek21.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,7 +84,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "last_directory_selection": "C:/src/WebSaitTest/src/test/java",
-    "last_opened_file_path": "C:/src/WebSaitTest"
+    "last_opened_file_path": "C:/src/WebSaitTest",
+    "settings.editor.selected.configurable": "editor.preferences.import"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -60,7 +97,7 @@
       <recent name="by_ITAcademe_Ivanchikov_d" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.testCalcPage">
+  <component name="RunManager" selected="JUnit.testWb.testloginButtonclick">
     <configuration name="testCalcPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PasePageMy" />
       <extension name="coverage">
@@ -106,7 +143,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testPassPageMy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testWb" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PasePageMy" />
       <extension name="coverage">
         <pattern>
@@ -115,13 +152,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by_itAcademy_Ivanchikov_d" />
-      <option name="MAIN_CLASS_NAME" value="by_itAcademy_Ivanchikov_d.testPassPageMy" />
+      <option name="MAIN_CLASS_NAME" value="by_itAcademy_Ivanchikov_d.testWb" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testPassPageMy.testPassPageMyEmptyValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testWb.testloginButtonclick" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PasePageMy" />
       <extension name="coverage">
         <pattern>
@@ -130,8 +167,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="by_itAcademy_Ivanchikov_d" />
-      <option name="MAIN_CLASS_NAME" value="by_itAcademy_Ivanchikov_d.testPassPageMy" />
-      <option name="METHOD_NAME" value="testPassPageMyEmptyValues" />
+      <option name="MAIN_CLASS_NAME" value="by_itAcademy_Ivanchikov_d.testWb" />
+      <option name="METHOD_NAME" value="testloginButtonclick" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testWb.testloginButtonclick" />
+        <item itemvalue="JUnit.testWb" />
         <item itemvalue="JUnit.testCalcPage" />
         <item itemvalue="JUnit.testKvitkiCopi" />
         <item itemvalue="JUnit.testKvitkiByPage" />
-        <item itemvalue="JUnit.testPassPageMy" />
-        <item itemvalue="JUnit.testPassPageMy.testPassPageMyEmptyValues" />
       </list>
     </recent_temporary>
   </component>
@@ -219,11 +256,15 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="taf-web oz" />
     <MESSAGE value="taf-web Pass" />
     <MESSAGE value="taf-web PassNew" />
     <MESSAGE value="taf-web Site" />
-    <option name="LAST_COMMIT_MESSAGE" value="taf-web Site" />
+    <MESSAGE value="taf-web oz" />
+    <option name="LAST_COMMIT_MESSAGE" value="taf-web oz" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/WebSaitTest$testjnliner_testOnliner.ic" NAME="testjnliner.testOnliner Coverage Results" MODIFIED="1700497662766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
